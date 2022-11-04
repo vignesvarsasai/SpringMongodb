@@ -6,12 +6,14 @@ import com.example.springmongodb.repository.BookRepo;
 import com.example.springmongodb.repository.JokeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class JokesContoller {
@@ -46,6 +48,19 @@ public class JokesContoller {
         responce += Arrays.toString(tenJokes.toArray());
         return responce;
     }
+
+
+    @GetMapping("/jokestype")
+    public String joketypeController(@RequestParam(name = "type", defaultValue = "56") int id){
+        //return String.valueOf(jkrepo.findById(id));
+
+        return jkrepo.dosomething();
+
+
+    }
+
+
+
 
 
 }
